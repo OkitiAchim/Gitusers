@@ -1,15 +1,30 @@
 export default function UserCard({ user }) {
   return (
-    <div style={{ marginTop: "30px" }}>
-      <img src={user.avatar_url} alt={user.login} width={120} />
+    <div className="user-card">
+      <img src={user.avatar_url} alt={user.login} />
 
-      <h2>{user.name}</h2>
+      <h2>{user.name || user.login}</h2>
 
-      <p>@{user.login}</p>
+      <p className="username">@{user.login}</p>
 
-      <p>{user.bio}</p>
+      <p>{user.bio || "No bio available."}</p>
 
-      <p>Followers: {user.followers}</p>
+      <div className="stats">
+        <div>
+          <strong>{user.followers}</strong>
+          <span>Followers</span>
+        </div>
+
+        <div>
+          <strong>{user.following}</strong>
+          <span>Following</span>
+        </div>
+
+        <div>
+          <strong>{user.public_repos}</strong>
+          <span>Repos</span>
+        </div>
+      </div>
     </div>
   );
 }

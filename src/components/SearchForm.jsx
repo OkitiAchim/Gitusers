@@ -12,7 +12,7 @@ export default function SearchForm({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="search-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter GitHub username..."

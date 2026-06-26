@@ -3,21 +3,28 @@ import Loader from "./Components/Loader";
 import ErrorMessage from "./Components/ErrorMessage";
 import UserList from "./Components/UserList";
 import useUser from "./hooks/useUser";
+import "./styles/app.css";
 
 export default function App() {
   const { user, loading, error, searchUser } = useUser();
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>GitHub User Search</h1>
+    <main className="app">
+      <div className="container">
+        <h1>GitHub User Search</h1>
 
-      <SearchForm onSearch={searchUser} />
+        <p className="subtitle">
+          Search for any GitHub profile using React Async Hooks.
+        </p>
 
-      {loading && <Loader />}
+        <SearchForm onSearch={searchUser} />
 
-      {error && <ErrorMessage message={error} />}
+        {loading && <Loader />}
 
-      {user && <UserList user={user} />}
-    </div>
+        {error && <ErrorMessage message={error} />}
+
+        {user && <UserList user={user} />}
+      </div>
+    </main>
   );
 }
